@@ -27,7 +27,7 @@
   <script>
     // Extract the path after the domain — e.g. /ABC123?from=...&name=Sara
     // and redirect to the custom scheme withyou:///join/<rest>
-    var path = window.location.pathname.replace(/^\//, '');
+    var path = window.location.pathname.replace(/^\/withyou-join\/?/, '');
     var query = window.location.search;
     var deepLink = 'withyou:///join/' + path + query;
     window.location.replace(deepLink);
