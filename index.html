@@ -25,11 +25,11 @@
   <h2 style="margin:0">Opening WithYou…</h2>
   <p>If nothing happens, make sure WithYou is installed.</p>
   <script>
-    // Extract the path after the domain — e.g. /ABC123?from=...&name=Sara
-    // and redirect to the custom scheme withyou:///join/<rest>
+    // Strip the /withyou-join prefix from the path, keep the rest (pairCode + query params)
+    // e.g. /withyou-join/ABC123?from=...&name=Sara → withyou://join/ABC123?from=...&name=Sara
     var path = window.location.pathname.replace(/^\/withyou-join\/?/, '');
     var query = window.location.search;
-    var deepLink = 'withyou:///join/' + path + query;
+    var deepLink = 'withyou://join/' + path + query;
     window.location.replace(deepLink);
   </script>
 </body>
